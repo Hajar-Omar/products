@@ -1,0 +1,23 @@
+<div class="container">
+  <mat-form-field>
+    <mat-label>product</mat-label>
+    <input
+      matInput
+      placeholder="product"
+      [(ngModel)]="keyword"
+      (ngModelChange)="loadProducts()"
+    />
+  </mat-form-field>
+
+  <div class="d-flex">
+    <mat-card
+      class="w-25"
+      *ngFor="let item of products"
+      [routerLink]="['product', item.id]"
+    >
+      <img [src]="item.images[0].thumbnail" [alt]="item.images[0].file_name" />
+      <h4>{{ item.title }}</h4>
+      <p>{{ item.brand_name }}</p>
+    </mat-card>
+  </div>
+</div>
